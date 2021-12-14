@@ -3,11 +3,6 @@
 AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 
 # 置顶 #
-* 本项目是建立在[原教程](https://blog.432100.xyz/index.php/archives/50/)可以正确调用api的**假设**上的，核心是paran/黑幕大佬的py脚本。
-* 本项目只是提供一个自动、免费、无需额外设备的脚本运行方式，换句话说，**就是一台机子**。（因为原教程需要服务器/超长时间运转的设备，大部分人都不具备，本项目应运而生）
-* 请务必先阅读理解[原教程](https://blog.432100.xyz/index.php/archives/50/)的**原理说明、设计理念**。
-* 搬运[原教程](https://blog.432100.xyz/index.php/archives/50/)说法：**不保证一定能续期！不保证一定能续期！不保证一定能续期**！或者说，**只是增大续订可能性**。(据我了解，E5续订一般在最后20天左右发通知)
-* 若理解并接受上述说明，请接着操作；**若否，请点击浏览器右上角 X 。**
 
 ### 项目说明 ###
 * 不定时调用
@@ -17,16 +12,8 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
   (本项目运行完一次大概要一两小时，建议先弄AutoApiSecret看看Api是否全部调用成功，然后再把应用id、机密、token复制过来这边)
 
 ### 特别说明/Thanks ###
-* 原教程博主-黑幕（酷安id-Paran）：https://blog.432100.xyz/index.php/archives/50/
-* 普通版地址：https://github.com/wangziyingwen/AutoApi
-* 加密版地址：https://github.com/wangziyingwen/AutoApiSecret
-* 模仿人为应用开发版（包含升级步骤）：https://github.com/wangziyingwen/AutoApiSR
-* 更新日志：https://github.com/wangziyingwen/Autoapi-test
-* 网页获取refresh_token小工具（不建议使用）：https://github.com/wangziyingwen/GetAutoApiToken
-* 视频教程：（我操作很慢，自行倍速/快进）
-   * 在线/下载地址：https://kino-onemanager.herokuapp.com/Video/AutoApi%E6%95%99%E7%A8%8B.mp4?preview
-   * B站：https://www.bilibili.com/video/av95688306/
-           
+* 原教程博主-黑幕（酷安id-Paran）
+        
 
 ### 区别 ###
    项目用的是公共仓库（开放代码），所有人都能看到你的代码内容。
@@ -41,7 +28,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 
 ### 步骤 ###
 教程开始:
-1.首先去https://portal.azure.com/#home注册一个应用,这一步网上的教程实在是太多了,我就不详细写了,大致写一下流程
+1.首先去https://portal.azure.com/#home 注册一个应用,这一步网上的教程实在是太多了,我就不详细写了,大致写一下流程
 先用e5管理员账号登录网站,然后在主页找到Azure Active Directory点进去，再在左侧目录找到点击应用注册，再点上方的新注册就会跳出一个新建应用的界面，应用名字随意填写,然后选择任何组织目录(任何 Azure AD 目录 – 多租户)中的帐户，重定向url选web，填入http://localhost:53682/,最后点注册即可
 
 2.注册好应用会跳转到应用概述界面,你会看到一个应用程序(客户端) ID,复制这个Id记录下来，后面要用到,然后点击左侧目录的API权限,依次点击添加权限、Microsoft Graph、委托的权限，然后依次搜索以下这12个权限并勾选:
@@ -64,7 +51,7 @@ rclone authorize "onedrive" "729xx16f-8x70-4xb8-8fd6-1xxx9b582b1f" "?@P@4u/fxxcx
 执行后电脑浏览器会弹出一个界面,登陆自己的e5账号,然后看到浏览器显示Success!，说明获取token成功了。然后我们返回的cmd窗口或者power shell窗口，你会看到一大段Paste the following into your remote machine --->开头,<---End paste结尾的代码，找到"refresh_token":"复制后面的代码直到","expiry"，说白了就是复制refresh_token，不要带双引号,类似格式如下:
 
 OAQABAAAAAABeAFzDwllzTYxxxx_qYbH8UALCVjtv_6YeHHOwXExxxxxywOKSg2Hd_GSjW1vcLzqLhDC51Sl4T2ZYfK1p64_ps3qidrodIZLkz-4f-21IfUUgQdEi-g-jIw-La9FjREuUuQnSSKgOlBAKpiwVjwPGdaO_G9yB5cLvX5zi3MZ-_ZwEVHEp-ldDGYqQiZFSnpD6G-cjQIzuN0w8lxl_9laIH0dkA1uUOKtA64qbC976OHSIaidaF4oZi_ntQIsMHWnUssYbR-2X446apxxMupLRM5oaHb8bKMTDlzk6_zUOw23y1jcb8gzyzL5IZdBVVX9UIuPrR-yuzyTd24v39OGk-I9xxhRms5vM6-vUPgxKzuIwFq_CYothdbo8ZvBuMJebl21D1UeaBerjPzxxxxxxxxxVQakxjMBHPC1ueyxR2UvRrlhHhNs8qYFBe5lzceofNWvy1QYRObT8DqCENyLa4Nb08jVTcA6Eh7oxkXtflg_xEY8ECRTWGIZ2qo4ziW70xxxxxxxvq6MCubQgOdt0qdWrc15LVV99YAl9L0KtC3ql0tMPVJBvodTNrvVqcxD-LNtnpxxx1J2tmDuc15xxxxxxTPp5MjXDhSbq8MACmRQh4dR09QqmqXps1c80pxyVkQbr8O669MQ1FMqlICTKJQ8c54_U9NWBo1rAU_zPmE841mDEFjy7dXakFkYR9IIthPNBr2nCQDdvjTitCiIwcT-NTitAd7TseSpiWg9zBsd6Q1OOcL83anZnaJ4sHy68XupeFydmjIYWZw83m96xRaw5MMHJAoyeTkwkHH9qqaSZ0mNM_PN09-tj6nUVYWf5lajMNzd_0GPfwqxxxx9LC0deo43zNTZq20f94_-HNTscKg5dJOA8jUeddxxxxLQa-ZXZV38-lxxxYL_ZDvPu5-0FP-aDTwvxxxx0F7g97o3wTrHSZw14Ra9uxniTh4gAA
-
+https://maofun.com/wp-content/uploads/2020/04/token%E5%9C%B0%E6%96%B9.png
 
 5.保存你的应用id、秘钥、refresh_token 3样东西
 
@@ -115,6 +102,7 @@ workflow
 
 
 每次轮数修改地方：（在1.py最后面）
+
 
 
 
@@ -218,12 +206,7 @@ workflow
 （我们这里用的公共仓库，按理，你们可以设定无限循环调用，然后6小时启动一次，保证24小时全天候调用）
 
 ### 最后 ###
-  教程很直白了，应该都会弄吧！
-  
-  代码小白，多包涵！有问题/修改建议可以点击上方issues发布一下，或者PY给我:
-  wz.lxh@outlook.com
-  
-  建了个Q群：657581700，不过没人
+
   
   最后的最后，再次感谢黑幕/paran大佬
   
