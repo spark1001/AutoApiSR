@@ -40,6 +40,88 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 --------------------------------------------------------------
 
 ### 步骤 ###
+教程开始:
+1.首先去https://portal.azure.com/#home注册一个应用,这一步网上的教程实在是太多了,我就不详细写了,大致写一下流程
+先用e5管理员账号登录网站,然后在主页找到Azure Active Directory点进去，再在左侧目录找到点击应用注册，再点上方的新注册就会跳出一个新建应用的界面，应用名字随意填写,然后选择任何组织目录(任何 Azure AD 目录 – 多租户)中的帐户，重定向url选web，填入http://localhost:53682/,最后点注册即可
+
+2.注册好应用会跳转到应用概述界面,你会看到一个应用程序(客户端) ID,复制这个Id记录下来，后面要用到,然后点击左侧目录的API权限,依次点击添加权限、Microsoft Graph、委托的权限，然后依次搜索以下这12个权限并勾选:
+Files.Read.All、Files.ReadWrite.All、Sites.Read.All、Sites.ReadWrite.All、
+User.Read.All、User.ReadWrite.All、Directory.Read.Al、Directory.ReadWrite.All、
+Mail.Read、Mail.ReadWrite、MailboxSettings.Read、MailboxSettings.ReadWrite
+全部勾选好后点击底部的添加权限，然后又返回到了API权限界面，这时候你一定要再点一下代表xxx授予管理员同意,不点这个,outlook api会无法调用
+
+3.点击左侧证书和密码,点+新客户端密码,说明随便填，年限随便选多久都行,然后点添加,添加好后,客户端密码下面会有一个值,复制值下面的那一串代码，这是应用秘钥，后面会用到,到这一步，注册应用已经结束了
+
+4.windows下载rclone获取token,点击这里下载https://rclone.org/downloads/ ,随意下载到电脑的任意一个目录,下载后不要双击rclone.exe安装!,而是在rclone.exe同目录下,按住shift后点鼠标右键，选择在此处打开cmd窗口或在此处打开power shell窗口,弹出窗口后,CMD窗口就执行:
+
+rclone authorize "onedrive" "之前保存的应用id" "之前保存的应用秘钥"
+请自行将双引号内的替换为之前我们保存的应用id和秘钥,示例:
+
+rclone authorize "onedrive" "729xx16f-8x70-4xb8-8fd6-1xxx9b582b1f" "?@P@4u/fxxcxxx28:B-3i_QxxFxc6_ZO"
+如果是power shell的窗口请执行:
+
+ .\rclone authorize "onedrive" "729xx16f-8x70-4xb8-8fd6-1xxx9b582b1f" "?@P@4u/fxxcxxx28:B-3i_QxxFxc6_ZO"
+执行后电脑浏览器会弹出一个界面,登陆自己的e5账号,然后看到浏览器显示Success!，说明获取token成功了。然后我们返回的cmd窗口或者power shell窗口，你会看到一大段Paste the following into your remote machine --->开头,<---End paste结尾的代码，找到"refresh_token":"复制后面的代码直到","expiry"，说白了就是复制refresh_token，不要带双引号,类似格式如下:
+
+OAQABAAAAAABeAFzDwllzTYxxxx_qYbH8UALCVjtv_6YeHHOwXExxxxxywOKSg2Hd_GSjW1vcLzqLhDC51Sl4T2ZYfK1p64_ps3qidrodIZLkz-4f-21IfUUgQdEi-g-jIw-La9FjREuUuQnSSKgOlBAKpiwVjwPGdaO_G9yB5cLvX5zi3MZ-_ZwEVHEp-ldDGYqQiZFSnpD6G-cjQIzuN0w8lxl_9laIH0dkA1uUOKtA64qbC976OHSIaidaF4oZi_ntQIsMHWnUssYbR-2X446apxxMupLRM5oaHb8bKMTDlzk6_zUOw23y1jcb8gzyzL5IZdBVVX9UIuPrR-yuzyTd24v39OGk-I9xxhRms5vM6-vUPgxKzuIwFq_CYothdbo8ZvBuMJebl21D1UeaBerjPzxxxxxxxxxVQakxjMBHPC1ueyxR2UvRrlhHhNs8qYFBe5lzceofNWvy1QYRObT8DqCENyLa4Nb08jVTcA6Eh7oxkXtflg_xEY8ECRTWGIZ2qo4ziW70xxxxxxxvq6MCubQgOdt0qdWrc15LVV99YAl9L0KtC3ql0tMPVJBvodTNrvVqcxD-LNtnpxxx1J2tmDuc15xxxxxxTPp5MjXDhSbq8MACmRQh4dR09QqmqXps1c80pxyVkQbr8O669MQ1FMqlICTKJQ8c54_U9NWBo1rAU_zPmE841mDEFjy7dXakFkYR9IIthPNBr2nCQDdvjTitCiIwcT-NTitAd7TseSpiWg9zBsd6Q1OOcL83anZnaJ4sHy68XupeFydmjIYWZw83m96xRaw5MMHJAoyeTkwkHH9qqaSZ0mNM_PN09-tj6nUVYWf5lajMNzd_0GPfwqxxxx9LC0deo43zNTZq20f94_-HNTscKg5dJOA8jUeddxxxxLQa-ZXZV38-lxxxYL_ZDvPu5-0FP-aDTwvxxxx0F7g97o3wTrHSZw14Ra9uxniTh4gAA
+
+
+5.保存你的应用id、秘钥、refresh_token 3样东西
+
+6.登陆/新建github账号，回到本项目页面，点击右上角fork本项目的代码到你自己的账号，然后你账号会出现一个一模一样的项目，接下来的操作均在你的这个项目下进行。
+根据原教程获取应用id、机密、refresh_token（自己复制保存，注意区分id机密，别弄混了）
+
+然后在线编辑你项目里的1.txt，将整个refresh_token覆盖粘贴进去（里面是我的数据，先删掉或者覆盖掉）。（千万不要改1.py）
+
+1.txt内容的应该是开头OAQ….AA结尾（目前我看到的都是这种格式） ，结尾不要留空格或者空行
+7.依次点击上栏Setting > Secrets > Add a new secret，新建两个secret如图：CONFIG_ID、CONFIG_KEY。
+
+内容分别如下: ( 把你的应用id改成你的应用id , 你的应用机密改成你的机密，单引号不要动 )
+
+CONFIG_ID
+
+id=r'你的应用id'
+CONFIG_KEY
+
+secret=r'你的应用秘钥'
+
+
+最终的格式应该类似这样
+
+
+8.进入你的个人设置页面(右上角头像 Settings，不是仓库里的 Settings)，选择 Developer settings > Personal access tokens > Generate new token,
+设置页
+
+设置页
+
+9.设置名字为GITHUB_TOKEN , 然后勾选 repo , admin:repo_hook , workflow 等选项，最后点击Generate token即可。
+repo
+
+adminrepo
+
+workflow
+
+10.点击右上角星星/star立马调用一次，再点击上面的Action就能看到每次的运行日志，看看运行状况
+
+（必需点进去Test Api看下，api有没有调用到位，有没有出错。外面的Auto Api打勾只能说明运行是正常的，我们还需要确认10个api调用成功了，就像图里的一样。如果少了几个api，就是注册应用的时候赋予api权限没弄好）
+
+
+
+11.没出错的话，就搞定啦！！再看看下面的定时次数要不要修改，不打算改就不用管了。
+
+作者设定的每6小时自动运行一次，每次调用3轮（点击右上角星星/star也可以立马调用一次），你们自行斟酌修改（我也不知道保持活跃要调用多少次、多久）：
+定时自动启动修改地方：（在.github/workflow/autoapi.yml文件里，自行百度cron定时任务格式）
+
+
+
+每次轮数修改地方：（在1.py最后面）
+
+
+
+
+
+
+
 **如果想从AutoApiSecret项目直接升级**
 
   可以把本项目代码下载，然后把里面部分文件更新进AutoApiSecret:
