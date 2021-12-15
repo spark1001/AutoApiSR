@@ -85,22 +85,21 @@ rclone authorize "onedrive" "729xx16f-8x70-4xb8-8fd6-1xxx9b582b1f" "?@P@4u/fxxcx
 repo
 ![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=EcCPXHe8wTJNgblJeYGg9_gBxK4f0XQAn59K-RaCN-Tcfg)
 admin:repo_hook
-![image](https://spark2077-my.sharepoint.com/:i:/g/personal/spark_spark2077_onmicrosoft_com/EemQ1hH4FQRBoA6gF-4ZjmUBEUlElk_48Qq2Om19koN_Vg?e=AtGCPO)
+![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=EemQ1hH4FQRBoA6gF-4ZjmUBEUlElk_48Qq2Om19koN_Vg)
 workflow
-![image](https://微软.云.eu.org/spark2077=om=spark_spark2077_onmicrosoft_com=Ebrst7Bz2XhMoiajeDCZWw4BgmgReoYG_J2kJOa-Xh783w
-)
+![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=Ebrst7Bz2XhMoiajeDCZWw4BgmgReoYG_J2kJOa-Xh783w)
 
 10.点击右上角星星/star立马调用一次，再点击上面的Action就能看到每次的运行日志，看看运行状况
 
 （必需点进去Test Api看下，api有没有调用到位，有没有出错。外面的Auto Api打勾只能说明运行是正常的，我们还需要确认10个api调用成功了，就像图里的一样。如果少了几个api，就是注册应用的时候赋予api权限没弄好）
-![image](https://微软.云.eu.org/spark2077=om=spark_spark2077_onmicrosoft_com=ETpxwJuYNXdPjvO7dR2RXFsBiN1vwt3mY2JXL4IyRa2vlA)
+![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=ETpxwJuYNXdPjvO7dR2RXFsBiN1vwt3mY2JXL4IyRa2vlA)
 
 
 11.没出错的话，就搞定啦！！再看看下面的定时次数要不要修改，不打算改就不用管了。
 
 作者设定的每6小时自动运行一次，每次调用3轮（点击右上角星星/star也可以立马调用一次），你们自行斟酌修改（我也不知道保持活跃要调用多少次、多久）：
 定时自动启动修改地方：（在.github/workflow/autoapi.yml文件里，自行百度cron定时任务格式）
-![image](https://微软.云.eu.org/spark2077=om=spark_spark2077_onmicrosoft_com=EeC7daKUgb5EvfWEvwWx3DABDbVRYh3VLgb-N-ivmYJ3XQ)
+![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=EeC7daKUgb5EvfWEvwWx3DABDbVRYh3VLgb-N-ivmYJ3XQ)
 
 每次轮数修改地方：（在1.py最后面）
 ![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=ETBuwRJzkZJAij_X2OVR-WEBzL0KIq7r5l6P8o-WWkqrxw)
