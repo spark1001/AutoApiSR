@@ -103,7 +103,7 @@ workflow
 ![image](https://微软.云.eu.org/spark2077=om=spark_spark2077_onmicrosoft_com=EeC7daKUgb5EvfWEvwWx3DABDbVRYh3VLgb-N-ivmYJ3XQ)
 
 每次轮数修改地方：（在1.py最后面）
-![image](https://微软.云.eu.org/spark2077=om=spark_spark2077_onmicrosoft_com=ETBuwRJzkZJAij_X2OVR-WEBzL0KIq7r5l6P8o-WWkqrxw)
+![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=ETBuwRJzkZJAij_X2OVR-WEBzL0KIq7r5l6P8o-WWkqrxw)
 
 **如果想从AutoApiSecret项目直接升级**
 
