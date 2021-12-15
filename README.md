@@ -61,15 +61,15 @@ rclone authorize "onedrive" "729xx16f-8x70-4xb8-8fd6-1xxx9b582b1f" "?@P@4u/fxxcx
 
 然后在线编辑你项目里的1.txt，将整个refresh_token覆盖粘贴进去（里面是我的数据，先删掉或者覆盖掉）。（千万不要改1.py）
 
-1.txt内容的应该是开头OAQ….AA结尾，当然也有别的格式 ，结尾不要留空格或者空行
+1.txt内容的应该是开头OAQ….AA结尾，当然也有别的格式 ，结尾不要留空格或者空行<br>
 7.依次点击上栏 Setting > Secrets > Add a new secret，新建两个secret如图：CONFIG_ID、CONFIG_KEY。
 
 内容分别如下: ( 把你的应用id改成你的应用id , 你的应用机密改成你的机密，单引号不要动 )
 
-`CONFIG_ID`
+`CONFIG_ID`<br>
 `id=r'你的应用id'`
 
-`CONFIG_KEY`
+`CONFIG_KEY`<br>
 `secret=r'你的应用秘钥'`
 ![image](https://spark2077-my.sharepoint.com/personal/spark_spark2077_onmicrosoft_com/_layouts/52/download.aspx?share=ER_B5xsugmBJn7nae9e20bsB7Tz3DGB7v3TrlI_E0BfFkQ)
 
