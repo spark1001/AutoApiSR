@@ -39,7 +39,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 
 3.点击左侧证书和密码,点+新客户端密码,说明随便填，年限随便选多久都行,现在时间最长只能选24个月，到时候再改一下就行了，然后点添加,添加好后,客户端密码下面会有一个值,复制值下面的那一串代码，这是应用秘钥，后面会用到,到这一步，注册应用已经结束了
 
-4.windows下载rclone获取token,[点击这里下载](https://downloads.rclone.org/v1.57.0/rclone-v1.57.0-windows-amd64.zip"rclone-v1.57.0-windows-amd64.zip") ,随意下载到电脑的任意一个目录,下载后`不要双击rclone.exe安装!`,而是在rclone.exe同目录下,`按住shift后点鼠标右键`，选择在`此处打开cmd窗口或在此处打开power shell窗口`,弹出窗口后,CMD窗口就执行:
+4.windows下载rclone获取token,[点击这里下载](https://downloads.rclone.org/v1.57.0/rclone-v1.57.0-windows-amd64.zip) ,随意下载到电脑的任意一个目录,下载后`不要双击rclone.exe安装!`,而是在rclone.exe同目录下,`按住shift后点鼠标右键`，选择在`此处打开cmd窗口或在此处打开power shell窗口`,弹出窗口后,CMD窗口就执行:
 `rclone authorize "onedrive" "之前保存的应用id" "之前保存的应用秘钥"`
 请自行将双引号内的替换为之前我们保存的应用id和秘钥,示例:
 ```java
