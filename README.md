@@ -135,5 +135,5 @@ workflow
   
   ————wangziyingwen/酷安id-卷腿毛菌<br>
   国内网站教程可见： https://maofun.com/1174.html 
-  
+  B站视频教程可见：https://www.bilibili.com/video/av95688306/
 
